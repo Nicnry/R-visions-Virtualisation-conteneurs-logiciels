@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f2fbf9;
+  background-image: radial-gradient(#12213b12 1px, transparent 1px);
+  background-size: 18px 18px;
+  color: #12213b;
+}
+
+/* Tampon douanier "estimé / confirmé" — élément signature du site */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 2px dashed currentColor;
+  border-radius: 0.35rem;
+  transform: rotate(-3deg);
+  white-space: nowrap;
+}
+
+.crate-card {
+  background: #ffffff;
+  border: 2px solid #12213b;
+  border-radius: 0.75rem;
+  box-shadow: 4px 4px 0 0 #12213b;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.crate-card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 #12213b;
+}
+
+@media (hover: hover) {
+  .crate-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 #12213b;
+  }
+}
+
+.tag-chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Visible focus keyboard */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2f6fed;
+  outline-offset: 2px;
+}
